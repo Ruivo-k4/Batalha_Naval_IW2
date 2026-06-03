@@ -2,10 +2,10 @@
     display: grid;
     gap: 0.1rem;
 
-    width: 20dvw;
+    width: 25dvw;
 
-    transform: perspective(500px) rotateX(45deg); /*Deixa o campo em trapézio*/
-    /*transform-style: preserve-3d; /*Pede ele para manter o item 3d, sem achatar*/
+    /*transform: perspective(800px) rotateX(45deg); Deixa o campo em trapézio
+    transform-style: preserve-3d;*/
     
     .celCamp {
         background-size: 100% 100%;
@@ -14,9 +14,13 @@
         
         border: solid black 2px;
 
-        height: 30px;
-        width: 30px;
+        height: 50px;
+        width: 50px;
 
-        transform: rotateX(-45deg);
+        transition: transform 0.4s;
+        
+        &:hover {
+            transform: translateY(2px);
+        }
     }
 }
