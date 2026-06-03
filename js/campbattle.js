@@ -18,16 +18,34 @@ for (let i = 0; i < sizeCamp; i++) {
     }
 }
 
+//#region criando Matriz
+let itensCamp = []
+
+for (let i = 0; i < sizeCamp; i++) {
+    let lin = [];
+    for (let j = 0; j < sizeCamp; j++) {
+        lin.push(0);
+    }
+    itensCamp.push(lin);
+}
+
+console.log(itensCamp)
+//#endregion
+
 //#region evento de clicar
-let cCel = document.querySelectorAll('celCamp');
+let cCel = document.querySelectorAll('.celCamp');
 
-cCel.forEach((row, rowIndex) => {
+itensCamp.forEach((row, rowIndex) => {
     row.forEach((Element, colIndex) => {
-        let index = cCel[rowIndex * sizeCamp + colIndex]
-        Element = index;
-        
-        Element.addEventListener('click', () => {
+        let cel = cCel[rowIndex * sizeCamp + colIndex];
+        cel.addEventListener('click', () => {
+            cel.style.transform = "rotateY(-180deg)";
 
+            setTimeout(() => {
+                switch(Element){
+                    case 0: cel.style.backgroundImage = ""; break;
+                }
+            }, 100);
         });
     });
 });
