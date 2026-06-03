@@ -1,0 +1,1 @@
+export let sizeCamp = 10;
