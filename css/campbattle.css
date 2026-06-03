@@ -1,0 +1,22 @@
+.campBattle {
+    display: grid;
+    gap: 0.1rem;
+
+    width: 20dvw;
+
+    transform: perspective(500px) rotateX(45deg); /*Deixa o campo em trapézio*/
+    /*transform-style: preserve-3d; /*Pede ele para manter o item 3d, sem achatar*/
+    
+    .celCamp {
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        background-position: center;
+        
+        border: solid black 2px;
+
+        height: 30px;
+        width: 30px;
+
+        transform: rotateX(-45deg);
+    }
+}
