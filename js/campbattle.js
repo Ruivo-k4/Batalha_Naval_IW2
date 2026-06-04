@@ -1,6 +1,6 @@
 //#region Importações
-import { sizeCamp } from './globalsVariables.js';
-import { elementsCamp } from './globalsVariables.js';
+import { sizeCamp, elementsCamp } from './globalsVariables.js';
+console.log(sizeCamp)
 //#endregion
 
 //#region Gerando o campo
@@ -63,11 +63,11 @@ itensCamp.forEach((row, rowIndex) => {
 
             setTimeout(() => {
                 switch (Element) {
-                    case 0: cel.style.backgroundImage = `url(imgs/${imgsShip[4]})`; cel.style.border = "none"; break;
-                    case 1: cel.style.backgroundImage = `url(imgs/${imgsShip[3]})`; cel.style.border = "none"; break;
+                    case 0: cel.style.backgroundImage = `url(imgs/${imgsShip[0]})`; cel.style.border = "none"; break;
+                    case 1: cel.style.backgroundImage = `url(imgs/${imgsShip[1]})`; cel.style.border = "none"; break;
                     case 2: cel.style.backgroundImage = `url(imgs/${imgsShip[2]})`; cel.style.border = "none"; break;
-                    case 3: cel.style.backgroundImage = `url(imgs/${imgsShip[1]})`; cel.style.border = "none"; break;
-                    case 4: cel.style.backgroundImage = `url(imgs/${imgsShip[0]})`; cel.style.border = "none"; break;
+                    case 3: cel.style.backgroundImage = `url(imgs/${imgsShip[3]})`; cel.style.border = "none"; break;
+                    case 4: cel.style.backgroundImage = `url(imgs/${imgsShip[4]})`; cel.style.border = "none"; break;
                 }
             }, 200);
         });
