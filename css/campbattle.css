@@ -1,26 +1,27 @@
 .campBattle {
+    background-image: url("../imgs/waveInit.png");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+
     display: grid;
     gap: 0.1rem;
 
-    width: 25dvw;
+    width: max-content;
 
-    /*transform: perspective(800px) rotateX(45deg); Deixa o campo em trapézio
-    transform-style: preserve-3d;*/
+    transform: perspective(800px) rotateX(45deg); /*Deixa o campo em trapézio*/
+    transform-style: preserve-3d; /*Avisa que os elementos devem permanecer 3d*/
+
+    padding: 25px;
     
     .celCamp {
-        background-size: 100% 100%;
+        background-size: 100% 100%; /*força a imagem a se ajustar ao elemento*/
         background-repeat: no-repeat;
         background-position: center;
         
-        border: solid black 2px;
-
-        height: 50px;
-        width: 50px;
-
-        transition: transform 0.4s;
+        height: 70px;
+        width: 70px;
         
-        &:hover {
-            transform: translateY(2px);
-        }
+        transition: transform 0.5s ease-in-out, background 0.2s, border 0.3s;
+        transform-origin: center bottom; /*Coloca o 'ponto central' de cada eixo*/
     }
 }
