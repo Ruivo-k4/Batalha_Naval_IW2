@@ -18,12 +18,12 @@ if (btnInit) {
                 break;
             case "2":
                 localStorage.setItem("sizeCamp", "8");
-                localStorage.setItem("life", "3")
+                localStorage.setItem("life", "4")
                 localStorage.setItem("elementsCamp", "[12, 12, 12, 12, 16]");//setando os valores de elementCamp, sizeCamp, Life
                 break;
             case "3":
                 localStorage.setItem("sizeCamp", "12");
-                localStorage.setItem("life", "3")
+                localStorage.setItem("life", "9")
                 localStorage.setItem("elementsCamp", "[28, 29, 29, 29, 29]");//setando os valores de elementCamp, sizeCamp, Life
                 break;
         }
