@@ -8,7 +8,7 @@
 
     width: max-content;
 
-    transform: perspective(800px) rotateX(45deg); /*Deixa o campo em trapézio*/
+    transform: perspective(3000px) rotateX(45deg); /*Deixa o campo em trapézio*/
     transform-style: preserve-3d; /*Avisa que os elementos devem permanecer 3d*/
 
     padding: 25px;
