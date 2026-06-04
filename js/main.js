@@ -1,2 +1,3 @@
 import './campbattle.js';
-import './dificult.js'
+import './globalsVariables.js';
+import './dificults.js';
