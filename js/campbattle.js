@@ -25,11 +25,6 @@ for (let i = 0; i < sizeCamp; i++) {
 //#endregion
 
 //#region criando Matriz
-function checkNumsElementsCamp(elementsArray) {
-    return elementsArray.some(fld => fld > 0)
-    console.log(checkNumsElementsCamp(elementsArray))
-}
-
 let itensCamp = []; //local que terá todos os indices
 
 for (let i = 0; i < sizeCamp; i++) { //manupula as linhas da matriz
