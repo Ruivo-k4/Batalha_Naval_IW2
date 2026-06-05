@@ -1,5 +1,5 @@
 //#region Importações
-import { life, elementsCamp } from "./globalsVariables.js";
+import { life, elementsCamp, configurate } from "./globalsVariables.js";
 //#endregion
 
 //#region Vidas
@@ -16,5 +16,9 @@ if (cLifes) {
 //#endregion
 
 //#region Barcos
+let totShips = 0;
 
+for(let i = 0; i < 3; i++) {
+    alert(elementsCamp[i])
+}
 //#endregion
