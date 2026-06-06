@@ -1,3 +1,5 @@
+console.log("dificults.js está ativo!"); //Só pra verficar se fuinciona
+
 //#region exportações
 import { configurate, life, elementsCamp, sizeCamp } from "./globalsVariables.js";
 //#endregion
