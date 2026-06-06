@@ -1,11 +1,10 @@
+console.log("campBattle.js está ativo!"); //Só pra verficar se fuinciona
+
 //#region Importações
 import { sizeCamp, elementsCamp } from './globalsVariables.js';
-console.log(sizeCamp)
 //#endregion
 
 //#region Gerando o campo
-console.log("campBattle.js está ativo!"); //Só pra verficar se fuinciona
-
 let camp = document.querySelector(".campBattle"); // captura o campBattle do index.html
 camp.style.gridTemplateRows = `repeat(${sizeCamp}, 1fr)`;
 camp.style.gridTemplateColumns = `repeat(${sizeCamp}, 1fr)`;
