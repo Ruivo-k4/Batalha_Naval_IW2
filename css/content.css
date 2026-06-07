@@ -31,12 +31,11 @@
             width: 70px;
 
             transition: transform 0.5s ease-in-out, background 0.2s, border 0.3s;
-            transform-origin: center bottom;
-            /*Coloca o 'ponto central' de cada eixo*/
+            transform-origin: center bottom; /*Coloca o 'ponto central' de cada eixo*/
+
+            &:hover {
+                cursor: pointer;
+            }
         }
-    }
-
-    .nav-bar {
-
     }
 }
