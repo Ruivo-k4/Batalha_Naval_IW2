@@ -4,12 +4,16 @@ export let sizeCamp = Number(localStorage.getItem("sizeCamp")) || 4;
 export let life = Number(localStorage.getItem("life")) || 3;
 export let elementsCamp = JSON.parse(localStorage.getItem("elementsCamp")) || [3,3,2,3,5] //barco1, barco2, barco3, bomba, agua
 
+export let totShips = elementsCamp[0] + elementsCamp[1] + elementsCamp[2];
+
 export function configurate(newElements, newSize, newLife, newHeart) {
     elementsCamp.length = 0;
     elementsCamp.push(...newElements);
 
     sizeCamp = newSize;
     life = newLife;
+
+    totShips = elementsCamp[0] + elementsCamp[1] + elementsCamp[2];
 
     localStorage.setItem("elementsCamp", JSON.stringify(elementsCamp));
     localStorage.setItem("sizeCamp", sizeCamp);
