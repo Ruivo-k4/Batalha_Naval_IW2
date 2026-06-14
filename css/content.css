@@ -1,5 +1,6 @@
 .content {
     display: flex;
+    position: relative;
     align-items: center;
     justify-content: center;
     gap: 8dvw;
@@ -21,6 +22,22 @@
 
         padding: 25px;
 
+        #comboImage {
+            display: none;
+            position: absolute;
+            z-index: 99;
+
+            opacity: 0;
+
+            transition: opacity 0.5s;
+
+            transform: rotateX(-50deg);
+            transform-origin: center bottom;
+
+            top: 25%;
+            left: 7%;
+        }
+
         .celCamp {
             background-size: 100% 100%;
             /*força a imagem a se ajustar ao elemento*/
@@ -31,7 +48,8 @@
             width: 70px;
 
             transition: transform 0.5s ease-in-out, background 0.2s, border 0.3s;
-            transform-origin: center bottom; /*Coloca o 'ponto central' de cada eixo*/
+            transform-origin: center bottom;
+            /*Coloca o 'ponto central' de cada eixo*/
 
             &:hover {
                 cursor: pointer;
