@@ -1,0 +1,50 @@
+.header {
+    padding: auto 7%;
+
+    .menu {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        padding: 1.5rem;
+
+        #menu_list {
+            display: flex;
+            align-items: center;
+            justify-content: initial;
+            gap: 20px;
+
+            list-style: none;
+
+            width: 35%;
+
+            .menu_itens {
+
+                #restartGame {
+                    height: 15dvh;
+
+                    &:hover {
+                        transform: scale(1.2);
+                        cursor: pointer;
+                    }
+                }
+                
+                .menu_levels {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    
+                    .menu_levels-img {
+                        height: 15dvh;
+                        transform-origin: bottom center;
+                        
+                        &:hover {
+                            transform: scale(1.1);
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
