@@ -20,8 +20,8 @@ if (btnInit) {
                 break;
             case "2":
                 localStorage.setItem("sizeCamp", "6");
-                localStorage.setItem("life", "4")
-                localStorage.setItem("elementsCamp", "[7, 7, 8, 5, 9]");
+                localStorage.setItem("life", "2")
+                localStorage.setItem("elementsCamp", "[7, 7, 8, 7, 9]");
                 break;
             case "3":
                 localStorage.setItem("sizeCamp", "10");
