@@ -19,6 +19,18 @@ function winner() {
     }
 }
 
+let chances = life; //só pra poder alterar a vida diretamente por aqui
+function loose() {
+    chances -= 1
+    console.log("Vidas: " + chances);
+    if (chances <= 0) {
+        setTimeout(() => {
+            alert("Você Perdeu Bobão!!");
+            location.reload();
+        }, 600);
+    }
+}
+
 //#region Gerando o campo
 let camp = document.querySelector(".campBattle"); // captura o campBattle do index.html
 camp.style.gridTemplateRows = `repeat(${sizeCamp}, 1fr)`;
@@ -170,7 +182,6 @@ function stateHearts() {
 
         StateFrame();
     }
-    console.log(heartList)
 }
 
 function StateFrame() {
@@ -182,17 +193,13 @@ function StateFrame() {
         } else if (heartList[index] === 1) {
             element.className = 'iconHeart bi bi bi-heart';
         } else if (heartList[index] <= 0) {
-            element.className = 'iconHeart bi bi-heartbreak';
-
-            setTimeout(() => {
-                alert("PERDEU BOBÃO");
-                location.reload();//recarrega a página
-            }, 200)
+            if (!element.classList.contains('bi-heartbreak')) { //se o coração ainda não tem essa classe (não está quebrado)
+                element.className = 'iconHeart bi bi-heartbreak';
+                loose();
+            }
         }
     });
 }
-//#endregion
-
 //#endregion
 
 //#region "responsividade" campo
