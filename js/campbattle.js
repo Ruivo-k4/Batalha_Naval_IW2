@@ -220,3 +220,7 @@ if (life == 1) {
     });
 }
 //#endregion
+
+//#region menu-bar exibições
+
+//#endregion
