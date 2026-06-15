@@ -7,7 +7,7 @@ import { configurate, life, elementsCamp, sizeCamp } from "./globalsVariables.js
 //region Captura dificuldade e definir dados
 let btnInit = document.querySelector("#submitDificult");
 
-if (btnInit) {
+if (btnInit) { //esse daqui é da página de inicio
     btnInit.addEventListener('click', () => {
         let option = document.querySelector("#c-dificult")
         let val = option.value
