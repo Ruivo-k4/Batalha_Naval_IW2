@@ -23,6 +23,8 @@
                 #restartGame {
                     height: 15dvh;
 
+                    transition: transform 0.5s;
+                    
                     &:hover {
                         transform: scale(1.2);
                         cursor: pointer;
@@ -36,7 +38,10 @@
                     
                     .menu_levels-img {
                         height: 15dvh;
+
                         transform-origin: bottom center;
+
+                        transition: transform 0.1s;
                         
                         &:hover {
                             transform: scale(1.1);
