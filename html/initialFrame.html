@@ -1,26 +1,32 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
+    <link rel="stylesheet" href="../css/style-initFrame.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Titulo do JOGO</title>
 </head>
+
 <body>
-       <!-- forms de login -->
-    <form id="forms">
-        <!--  parte onde põe o nome -->
-        <label for="input-nome">Nome</label>
-        <input type="text" id="input-nome" placeholder="digite seu nome">
-    </form>
-    <label for="dificul">
-        <select name="dificult" id="c-dificult">
-            <option value="">Escolha uma dificuldade</option>
-            <option value="1">Fácil</option>
-            <option value="2">Médio</option>
-            <option value="3">Difícil</option>
-        </select>
-    </label>
-    <a href="../index.html" class="ancoraSubmit"><button id="submitDificult">INICIAR</button></a>
+    <!-- forms de login -->
+    <div class="container">
+        <form id="forms">
+            <!--  parte onde põe o nome -->
+            <input type="text" id="input-nome" placeholder="JogadorBala112">
+        </form>
+
+        <label for="dificult">
+            <select name="dificult" id="c-dificult">
+                <option value="" >Escolha uma dificuldade</option>
+                <option value="1">Fácil</option>
+                <option value="2">Médio</option>
+                <option value="3">Difícil</option>
+            </select>
+        </label>
+        <a href="../index.html" class="ancoraSubmit"><button id="submitDificult">INICIAR</button></a>
+    </div>
 </body>
 <script type="module" src="../js/dificults.js"></script>
+
 </html>
