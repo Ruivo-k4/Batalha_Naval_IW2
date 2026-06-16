@@ -24,25 +24,36 @@
                     height: 15dvh;
 
                     transition: transform 0.5s;
-                    
+
                     &:hover {
                         transform: scale(1.2);
                         cursor: pointer;
                     }
                 }
-                
+
+                a {
+                    #comboImage {
+                        opacity: 1;
+
+                        transition: opacity 0.5s;
+
+                        width: 10rem;
+                        height: auto;
+                    }
+                }
+
                 .menu_levels {
                     display: flex;
                     align-items: center;
                     justify-content: center;
-                    
+
                     .menu_levels-img {
                         height: 15dvh;
 
                         transform-origin: bottom center;
 
                         transition: transform 0.1s;
-                        
+
                         &:hover {
                             transform: scale(1.1);
                             cursor: pointer;
