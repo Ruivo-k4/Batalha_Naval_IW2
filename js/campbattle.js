@@ -125,6 +125,45 @@ function comboSequence() {
     scoreDisplay.innerHTML = "Pontos: " + score;
     return (score, combo)
 }
+
+//#region bonus de combo
+function comboBonus(r, c) {
+    let offSet = [
+        [r - 1, c], // Cima
+        [r + 1, c], // Baixo
+        [r, c - 1], // Esquerda
+        [r, c + 1]  // Direita
+    ];
+
+    offSet.forEach(([vRow, vCol]) => { //vamos entrar dentro da mascara
+        if (combo >= totShips * 0.37) {
+            if (vRow >= 0 && vRow < sizeCamp && vCol >= 0 && vCol < sizeCamp) { //não deixa ele sair fora da matriz
+                let offsIndex = vRow * sizeCamp + vCol;
+                let nCel = cCel[offsIndex]; //neighbor (vizinho) celula -> cCel[item achado]
+
+                if (!nCel.classList.contains('revealed')) {//somente os que não foram revelados
+                    let nValue = itensCamp[vRow][vCol]; //pega qual é o elemento da matriz
+
+                    nCel.style.transform = "rotateY(-360deg) rotateX(-35deg)";
+
+                    // Revela a imagem do vizinho após o mesmo tempo de animação
+                    setTimeout(() => {
+                        nCel.style.backgroundImage = `url(imgs/${imgsShip[nValue]})`;//coloca a imagem correta
+                    }, 200);
+
+                    setTimeout(() => {
+                        let alet = Math.floor(Math.random() * 3);
+
+                        nCel.style.transform = "none";
+                        nCel.style.backgroundImage = imgsInit[alet];
+                    }, 800);
+                }
+            }
+        }
+    });
+}
+//#endregion
+
 //#endregion
 
 //#region evento de clicar
@@ -135,13 +174,14 @@ itensCamp.forEach((row, rowIndex) => {
     row.forEach((Element, colIndex) => {
         let cel = cCel[rowIndex * sizeCamp + colIndex];
         cel.addEventListener('click', () => {
+            cel.classList.add("revealed");
             cel.style.transform = "rotateY(-360deg) rotateX(-35deg)";
 
             setTimeout(() => {
                 switch (Element) {
-                    case 0: cel.style.backgroundImage = `url(imgs/${imgsShip[0]})`; winner(); comboSequence(); break;
-                    case 1: cel.style.backgroundImage = `url(imgs/${imgsShip[1]})`; winner(); comboSequence(); break;
-                    case 2: cel.style.backgroundImage = `url(imgs/${imgsShip[2]})`; winner(); comboSequence(); break;
+                    case 0: cel.style.backgroundImage = `url(imgs/${imgsShip[0]})`; winner(); comboBonus(rowIndex, colIndex); comboSequence(); break;
+                    case 1: cel.style.backgroundImage = `url(imgs/${imgsShip[1]})`; winner(); comboBonus(rowIndex, colIndex); comboSequence(); break;
+                    case 2: cel.style.backgroundImage = `url(imgs/${imgsShip[2]})`; winner(); comboBonus(rowIndex, colIndex); comboSequence(); break;
                     case 3: cel.style.backgroundImage = `url(imgs/${imgsShip[3]})`; stateHearts(); combo = 0; break;
                     case 4: cel.style.backgroundImage = `url(imgs/${imgsShip[4]})`; combo = 0; break;
                 }
