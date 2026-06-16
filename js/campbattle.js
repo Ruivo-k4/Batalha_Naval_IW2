@@ -77,11 +77,14 @@ let score = 0
 let combo = 0
 let comboImg = document.querySelector("#comboImage")
 
-function comboSequence() {
+function comboSequence(r, c) {
     let scoreDisplay = document.querySelector("#scoreText");
+    let celIndex = r * sizeCamp + c;
+    let itemCel = cCel[celIndex];
     combo += 1;
 
     //ajuste dos multiplicadores de comapo (CM)
+
     if (combo >= 0 && combo < totShips * 0.25) {
         score += 100;
     } else if (combo >= totShips * 0.25 && combo < totShips * 0.37) {
@@ -94,12 +97,10 @@ function comboSequence() {
         score += 100 * 10;
     }
 
+
     console.log(combo)
 
     if (comboImg) {
-        comboImg.style.display = "flex";
-        comboImg.style.opacity = "1";
-
         //sistema de troca de imagens dinâmico
         if (combo == Math.round(totShips * 0.25)) {
             comboImg.src = "imgs/combo.png";
@@ -110,16 +111,6 @@ function comboSequence() {
         } else if (combo == Math.round(totShips * 0.90)) {
             comboImg.src = "imgs/comboSea.png";
         }
-        else {
-            comboImg.style.display = "none"
-        }
-
-        setTimeout(() => { // dá um tempo antes de sumir
-            comboImg.style.opacity = "0";
-            setTimeout(() => {
-                comboImg.style.display = "none";
-            }, 1000);
-        }, 1500);
     }
 
     scoreDisplay.innerHTML = "Pontos: " + score;
@@ -174,16 +165,21 @@ itensCamp.forEach((row, rowIndex) => {
     row.forEach((Element, colIndex) => {
         let cel = cCel[rowIndex * sizeCamp + colIndex];
         cel.addEventListener('click', () => {
-            cel.classList.add("revealed");
             cel.style.transform = "rotateY(-360deg) rotateX(-35deg)";
+
+            if (cel.classList.contains('revealed')) {//se o elemento ja foi revelado, nem deixa o resto funcionar
+                return;
+            }
+
+            cel.classList.add("revealed");
 
             setTimeout(() => {
                 switch (Element) {
-                    case 0: cel.style.backgroundImage = `url(imgs/${imgsShip[0]})`; winner(); comboBonus(rowIndex, colIndex); comboSequence(); break;
-                    case 1: cel.style.backgroundImage = `url(imgs/${imgsShip[1]})`; winner(); comboBonus(rowIndex, colIndex); comboSequence(); break;
-                    case 2: cel.style.backgroundImage = `url(imgs/${imgsShip[2]})`; winner(); comboBonus(rowIndex, colIndex); comboSequence(); break;
-                    case 3: cel.style.backgroundImage = `url(imgs/${imgsShip[3]})`; stateHearts(); combo = 0; break;
-                    case 4: cel.style.backgroundImage = `url(imgs/${imgsShip[4]})`; combo = 0; break;
+                    case 0: cel.style.backgroundImage = `url(imgs/${imgsShip[0]})`; winner(); comboBonus(rowIndex, colIndex); comboSequence(rowIndex, colIndex); break;
+                    case 1: cel.style.backgroundImage = `url(imgs/${imgsShip[1]})`; winner(); comboBonus(rowIndex, colIndex); comboSequence(rowIndex, colIndex); break;
+                    case 2: cel.style.backgroundImage = `url(imgs/${imgsShip[2]})`; winner(); comboBonus(rowIndex, colIndex); comboSequence(rowIndex, colIndex); break;
+                    case 3: cel.style.backgroundImage = `url(imgs/${imgsShip[3]})`; stateHearts(); combo = 0; comboImg.src = "imgs/ponto1x.png"; break;
+                    case 4: cel.style.backgroundImage = `url(imgs/${imgsShip[4]})`; combo = 0; comboImg.src = "imgs/ponto1x.png"; break;
                 }
             }, 200);
         });
