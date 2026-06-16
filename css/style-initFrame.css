@@ -1,0 +1,82 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 90dvh;
+
+    .container {
+        background-image: url(../imgs/waveInit.png);
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 0.5rem;
+
+        width: 30dvw;
+        height: 30dvw;
+
+        #forms {
+
+            #input-nome {
+                width: 23dvw;
+
+                border-radius: 15px;
+                border: none;
+                padding: 7px;
+
+                text-align: center;
+
+                transition: 0.3s;
+
+                &:hover {
+                    transform: translateY(-3px) rotate(-2deg);
+                    box-shadow: 5px 5px 8px rgb(129, 129, 129);
+                }
+            }
+
+        }
+
+        label {
+            #c-dificult {
+                width: 24dvw;
+
+                border-radius: 15px;
+                border: none;
+                padding: 5px;
+
+                text-align: center;
+
+                transition: 0.3s;
+
+                &:hover {
+                    transform: translateY(-3px) rotate(-2deg);
+                    box-shadow: 5px 5px 8px rgb(129, 129, 129);
+                }
+            }
+        }
+
+        #submitDificult {
+            background-color: orange;
+
+            width: 24dvw;
+
+            border-radius: 15px;
+            border: none;
+            padding: 5px;
+
+            text-align: center;
+
+            transition: 0.5s;
+
+            &:hover {
+                transform: translateY(-3px) rotate(-2deg);
+                transform-origin: top center;
+                box-shadow: 5px 5px 8px rgb(129, 129, 129);
+            }
+        }
+    }
+}
