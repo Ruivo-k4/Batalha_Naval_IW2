@@ -1,7 +1,7 @@
 console.log("dificults.js está ativo!"); //Só pra verficar se fuinciona
 
 //#region exportações
-import { configurate, life, elementsCamp, sizeCamp } from "./globalsVariables.js";
+import { configurate, life, elementsCamp, sizeCamp, nameUser } from "./globalsVariables.js";
 //#endregion
 
 //region Captura dificuldade e definir dados
@@ -11,6 +11,13 @@ if (btnInit) { //esse daqui é da página de inicio
     btnInit.addEventListener('click', () => {
         let option = document.querySelector("#c-dificult")
         let val = option.value
+
+        //#region Nome usuario
+        let userName = document.querySelector("#input-nome");
+        let name = userName.value;
+
+        localStorage.setItem("nameUser", name);
+        //#endregion
 
         switch (val) {
             case "1":
