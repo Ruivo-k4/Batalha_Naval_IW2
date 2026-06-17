@@ -1,7 +1,7 @@
 console.log("campBattle.js está ativo!"); //Só pra verficar se fuinciona
 
 //#region Importações
-import { sizeCamp, elementsCamp, life, configurate, totShips } from './globalsVariables.js';
+import { sizeCamp, elementsCamp, life, configurate, totShips, totBomb } from './globalsVariables.js';
 //#endregion
 
 let shipsTot = 0;//dita quando o jogo acaba
@@ -157,6 +157,18 @@ function comboBonus(r, c) {
 
 //#endregion
 
+//#region menu-bar exibições
+let cBbData = document.querySelector("#bombsData");//onde vai mostrar o núnero de bombas
+let bombsQnt = totBomb;
+
+function bombDisplay(bombs) {
+    bombs -= 1;
+    cBbData.innerHTML = "Bombas: " + bombs;
+}
+//#endregion
+
+cBbData.innerHTML = "Bombas: " + bombsQnt;
+
 //#region evento de clicar
 let cCel = document.querySelectorAll('.celCamp');
 let imgsShip = ['ship1.png', 'ship2.png', 'ship3.png', 'explode.png', 'sea.png'];
@@ -179,7 +191,7 @@ itensCamp.forEach((row, rowIndex) => {
                     case 1: cel.style.backgroundImage = `url(imgs/${imgsShip[1]})`; winner(); comboBonus(rowIndex, colIndex); comboSequence(rowIndex, colIndex); break;
                     case 2: cel.style.backgroundImage = `url(imgs/${imgsShip[2]})`; winner(); comboBonus(rowIndex, colIndex); comboSequence(rowIndex, colIndex); break;
                     //0 - 1 - 2 é tudo barco
-                    case 3: cel.style.backgroundImage = `url(imgs/${imgsShip[3]})`; stateHearts(); combo = 0; comboImg.src = "imgs/ponto1x.png"; break;
+                    case 3: cel.style.backgroundImage = `url(imgs/${imgsShip[3]})`; stateHearts(); combo = 0; comboImg.src = "imgs/ponto1x.png"; bombDisplay(bombsQnt); break;
                     //bomba
                     case 4: cel.style.backgroundImage = `url(imgs/${imgsShip[4]})`; combo = 0; comboImg.src = "imgs/ponto1x.png"; break;
                     //água
@@ -241,6 +253,8 @@ function StateFrame() {
 }
 //#endregion
 
+//#endregion
+
 //#region "responsividade" campo
 if (life == 1) {
     cCel.forEach(element => {
@@ -260,6 +274,6 @@ if (life == 1) {
 }
 //#endregion
 
-//#region menu-bar exibições
+//#region Records
 
 //#endregion
