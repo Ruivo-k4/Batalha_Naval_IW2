@@ -167,6 +167,18 @@ function bombDisplay(bombs) {
 }
 //#endregion
 
+//#region sons
+let sound = document.querySelector("#soundsGame")
+
+function sounds() {
+    /*essa parte é somente para o play, 
+    troque o sound.src na parte de "evento de clicar"*/
+
+    sound.currentTime = 0;//volta o som pro começo, evita repetir
+    sound.play();
+}
+//#endregion
+
 cBbData.innerHTML = "Bombas: " + bombsQnt;
 
 //#region evento de clicar
@@ -187,11 +199,11 @@ itensCamp.forEach((row, rowIndex) => {
 
             setTimeout(() => {
                 switch (Element) {
-                    case 0: cel.style.backgroundImage = `url(imgs/${imgsShip[0]})`; winner(); comboBonus(rowIndex, colIndex); comboSequence(rowIndex, colIndex); break;
-                    case 1: cel.style.backgroundImage = `url(imgs/${imgsShip[1]})`; winner(); comboBonus(rowIndex, colIndex); comboSequence(rowIndex, colIndex); break;
-                    case 2: cel.style.backgroundImage = `url(imgs/${imgsShip[2]})`; winner(); comboBonus(rowIndex, colIndex); comboSequence(rowIndex, colIndex); break;
+                    case 0: cel.style.backgroundImage = `url(imgs/${imgsShip[0]})`; winner(); comboBonus(rowIndex, colIndex); comboSequence(rowIndex, colIndex); sound.src = "../audios/som_barco1.mp3"; sounds(); break;
+                    case 1: cel.style.backgroundImage = `url(imgs/${imgsShip[1]})`; winner(); comboBonus(rowIndex, colIndex); comboSequence(rowIndex, colIndex); sound.src = "../audios/som_barco1.mp3"; sounds(); break;
+                    case 2: cel.style.backgroundImage = `url(imgs/${imgsShip[2]})`; winner(); comboBonus(rowIndex, colIndex); comboSequence(rowIndex, colIndex); sound.src = "../audios/som_barco1.mp3"; sounds(); break;
                     //0 - 1 - 2 é tudo barco
-                    case 3: cel.style.backgroundImage = `url(imgs/${imgsShip[3]})`; stateHearts(); combo = 0; comboImg.src = "imgs/ponto1x.png"; bombDisplay(bombsQnt); break;
+                    case 3: cel.style.backgroundImage = `url(imgs/${imgsShip[3]})`; stateHearts(); combo = 0; comboImg.src = "imgs/ponto1x.png"; bombDisplay(bombsQnt); sound.src = "../audios/explosão.mp3"; sounds(); break;
                     //bomba
                     case 4: cel.style.backgroundImage = `url(imgs/${imgsShip[4]})`; combo = 0; comboImg.src = "imgs/ponto1x.png"; break;
                     //água
@@ -274,6 +286,3 @@ if (life == 1) {
 }
 //#endregion
 
-//#region Records
-
-//#endregion
