@@ -44,17 +44,35 @@
     .nav-bar {
 
         .menu-bar {
+            background-image: url(../imgs/moldura_coracao.png);
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            height: 25rem;
+            width: 14rem;
+
+            
             #menu-bar_list {
                 display: flex;
-                align-items: initial;
+                align-items: center;
                 justify-content: center;
                 flex-direction: column;
-                gap: 1rem;
-
+                gap: 1.5rem;
+                
+                padding: 0;
+                
                 list-style: none;
+                
+                max-width: 80%;
+                
 
                 .menu-bar_itens {
+                    display: flex;
+                    justify-content: center;
 
                     .heartsLife {
                         display: grid;
