@@ -165,6 +165,19 @@ function bombDisplay(bombs) {
     bombs -= 1;
     cBbData.innerHTML = "Bombas: " + bombs;
 }
+
+cBbData.innerHTML = "Bombas: " + bombsQnt;
+
+let cShipData = document.querySelector("#shipsData");
+let shipQnt = totShips;
+
+function shipDisplay(ship) {
+    ship -= 1;
+    cShipData.innerHTML = "Barcos: " + ship;
+}
+
+cShipData.innerHTML = "Barcos: " + shipQnt;
+
 //#endregion
 
 //#region sons
@@ -178,8 +191,6 @@ function sounds() {
     sound.play();
 }
 //#endregion
-
-cBbData.innerHTML = "Bombas: " + bombsQnt;
 
 //#region evento de clicar
 let cCel = document.querySelectorAll('.celCamp');
@@ -201,7 +212,7 @@ itensCamp.forEach((row, rowIndex) => {
                 switch (Element) {
                     case 0: cel.style.backgroundImage = `url(imgs/${imgsShip[0]})`; winner(); comboBonus(rowIndex, colIndex); comboSequence(rowIndex, colIndex); sound.src = "../audios/som_barco1.mp3"; sounds(); break;
                     case 1: cel.style.backgroundImage = `url(imgs/${imgsShip[1]})`; winner(); comboBonus(rowIndex, colIndex); comboSequence(rowIndex, colIndex); sound.src = "../audios/som_barco1.mp3"; sounds(); break;
-                    case 2: cel.style.backgroundImage = `url(imgs/${imgsShip[2]})`; winner(); comboBonus(rowIndex, colIndex); comboSequence(rowIndex, colIndex); sound.src = "../audios/som_barco1.mp3"; sounds(); break;
+                    case 2: cel.style.backgroundImage = `url(imgs/${imgsShip[2]})`; winner(); comboBonus(rowIndex, colIndex); comboSequence(rowIndex, colIndex); sound.src = "../audios/som_barco1.mp3"; sounds(); shipDisplay(shipQnt); break;
                     //0 - 1 - 2 é tudo barco
                     case 3: cel.style.backgroundImage = `url(imgs/${imgsShip[3]})`; stateHearts(); combo = 0; comboImg.src = "imgs/ponto1x.png"; bombDisplay(bombsQnt); sound.src = "../audios/explosão.mp3"; sounds(); break;
                     //bomba
