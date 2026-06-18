@@ -8,5 +8,10 @@
 }
 
 body {
+    background-image: url(../imgs/background_plaia_top.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+
+    height: 100dvh;
     font-family: Arial, Helvetica, sans-serif;
 }
