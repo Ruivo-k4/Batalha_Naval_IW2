@@ -1,5 +1,7 @@
 console.log("campBattlePersonalit.js está funcionando!");
 
+import { configurate, life, elementsCamp, sizeCamp} from "./globalsVariables.js";
+
 let campSize = document.querySelector("#size_camp");
 
 let itens = 0;
@@ -20,54 +22,73 @@ if (campSize) {
 
         if (valueCs !== "") {
             aray.forEach(element => { //faz todos os elementos serem destravados
-                element.disabled = false;
-                element.value = Math.floor(itens / 5);
+                if (element) { // Verificação se o elemento existe
+                    element.disabled = false;
+                    element.value = Math.floor(itens / 5);
+                }
             });
         } else {
-            aray.forEach(element => element.disabled = true);//faz todos os elementos serem destravados
+            aray.forEach(element => {
+                if (element) element.disabled = true; // Verificação se o elemento existe
+            });
         }
 
         soma();
     });
 
     aray.forEach(element => { //verifica se teve alguma mudança nos inputs
-        element.addEventListener("input", () => {
-            soma();
-        });
+        if (element) { // Verificação se o elemento existe
+            element.addEventListener("input", () => {
+                soma();
+            });
+        }
     });
 
     function soma() { //atualiza a quantidade de elementos
         itensInput = 0;//evita somar com o resultado anterior
 
         aray.forEach(element => {
-            itensInput += Number(element.value) || 0;
+            if (element) { // Verificação se o elemento existe
+                itensInput += Number(element.value) || 0;
+            }
         });
 
         display()
     }
-}
 
-function display() {
-    let btnForm = document.querySelector("#configurate_btn");
-    let displayItn = document.querySelector("#itensDisp");
+    function display() {
+        let btnForm = document.querySelector("#configurate_btn");
+        let displayItn = document.querySelector("#itensDisp");
 
-    displayItn.innerHTML = itens - itensInput;
+        if (displayItn) { // Verificação se o display existe
+            displayItn.innerHTML = itens - itensInput;
 
-    if ((itens - itensInput) < 0) {
-        displayItn.style.color = "red";
+            if ((itens - itensInput) < 0) {
+                displayItn.style.color = "red";
+            } else {
+                if (btnForm) { // Verificação se o botão existe
+                    btnForm.addEventListener("click", () => {
+                        submitBtn();
+                    });
+                }
+            }
+        }
+
+    }
+
+    function submitBtn() {
+        let link = document.querySelector("#link_btn");
+
+        if (link) {
+            // Buscando os elementos direto aqui para criar a string baseada no seu formato necessário
+            let elements = `[${document.querySelector("#qnt-botes").value}, ${document.querySelector("#qnt-barcos").value}, ${document.querySelector("#qnt-navios").value}, ${document.querySelector("#qnt-bomb").value}, ${document.querySelector("#qnt-wave").value}]`
+
+            localStorage.setItem("sizeCamp", "4");
+            localStorage.setItem("life", "1");
+            localStorage.setItem("elementsCamp", elements);
+
+            link.href = "../index.html";
+        }
     }
 }
 
-let btnForm = document.querySelector("#configurate_btn");
-
-btnForm.addEventListener("click", () => {
-    let link = document.querySelector("#link_btn");
-
-    if (link) {
-        localStorage.setItem("sizeCamp", "4");
-        localStorage.setItem("life", "1");
-        localStorage.setItem("elementsCamp", `[${numBotes}, ${numBarcos}, ${numNavios}, ${numBombs}, ${numWave}]`);
-
-        link.href = "../index.html";
-    }
-});
