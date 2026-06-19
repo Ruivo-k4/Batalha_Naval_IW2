@@ -6,6 +6,7 @@ import { configurate, life, elementsCamp, sizeCamp, nameUser } from "./globalsVa
 
 //region Captura dificuldade e definir dados
 let btnInit = document.querySelector("#submitDificult");
+let direct = document.querySelector("#directPag");
 
 if (btnInit) { //esse daqui é da página de inicio
     btnInit.addEventListener('click', () => {
@@ -35,7 +36,11 @@ if (btnInit) { //esse daqui é da página de inicio
                 localStorage.setItem("life", "6");
                 localStorage.setItem("elementsCamp", "[15, 17, 19, 21, 29]");
                 break;
+            case "4":
+                direct.href = "../html/personalitiFrame.html";
+                break;
         }
     });
 }
+
 //#endregion
