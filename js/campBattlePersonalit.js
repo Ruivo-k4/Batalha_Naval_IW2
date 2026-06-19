@@ -15,7 +15,7 @@ if (campSize) {
     let wave = document.querySelector("#qnt-wave");
     let lifes = document.querySelector("#qnt-lifes");
 
-    let aray = [botes, barcos, navios, bombs, wave];
+    let aray = [botes, barcos, navios, bombs, wave, lifes];
 
     campSize.addEventListener("input", () => { //toda vez que tiver mudança no campo
         let valueCs = campSize.value;
@@ -27,16 +27,12 @@ if (campSize) {
                     element.disabled = false;
                     element.value = Math.floor(itens / 5);
                 }
-                lifes.disabled = false;
-                lifes.value = Math.floor(itens / 5);
             });
         } else {
             aray.forEach(element => {
                 if (element) element.disabled = true; // Verificação se o elemento existe
                 element.value = 0;
             });
-            lifes.disabled = true;
-            lifes.value = 0;
         }
 
         soma();
