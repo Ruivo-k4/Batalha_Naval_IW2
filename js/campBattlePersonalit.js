@@ -1,6 +1,6 @@
 console.log("campBattlePersonalit.js está funcionando!");
 
-import { configurate, life, elementsCamp, sizeCamp} from "./globalsVariables.js";
+import { configurate, life, elementsCamp, sizeCamp } from "./globalsVariables.js";
 
 let campSize = document.querySelector("#size_camp");
 
@@ -81,11 +81,17 @@ if (campSize) {
 
         if (link) {
             // Buscando os elementos direto aqui para criar a string baseada no seu formato necessário
-            let elements = `[${document.querySelector("#qnt-botes").value}, ${document.querySelector("#qnt-barcos").value}, ${document.querySelector("#qnt-navios").value}, ${document.querySelector("#qnt-bomb").value}, ${document.querySelector("#qnt-wave").value}]`
+            let elements = [
+                Number(document.querySelector("#qnt-botes").value) || 0,
+                Number(document.querySelector("#qnt-barcos").value) || 0,
+                Number(document.querySelector("#qnt-navios").value) || 0,
+                Number(document.querySelector("#qnt-bomb").value) || 0,
+                Number(document.querySelector("#qnt-wave").value) || 0
+            ];
 
             localStorage.setItem("sizeCamp", "4");
             localStorage.setItem("life", "1");
-            localStorage.setItem("elementsCamp", elements);
+            localStorage.setItem("elementsCamp", JSON.stringify(elements));
 
             link.href = "../index.html";
         }
