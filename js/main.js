@@ -5,3 +5,4 @@ import './globalsVariables.js';
 import './dificults.js';
 import './gameData.js';
 import './menu.js';
+import './campBattlePersonalit.js';
