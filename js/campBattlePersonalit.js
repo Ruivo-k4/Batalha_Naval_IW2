@@ -13,6 +13,7 @@ if (campSize) {
     let navios = document.querySelector("#qnt-navios");
     let bombs = document.querySelector("#qnt-bomb");
     let wave = document.querySelector("#qnt-wave");
+    let lifes = document.querySelector("#qnt-lifes");
 
     let aray = [botes, barcos, navios, bombs, wave];
 
@@ -26,11 +27,16 @@ if (campSize) {
                     element.disabled = false;
                     element.value = Math.floor(itens / 5);
                 }
+                lifes.disabled = false;
+                lifes.value = Math.floor(itens / 5);
             });
         } else {
             aray.forEach(element => {
                 if (element) element.disabled = true; // Verificação se o elemento existe
+                element.value = 0;
             });
+            lifes.disabled = true;
+            lifes.value = 0;
         }
 
         soma();
@@ -83,8 +89,8 @@ if (campSize) {
             // Buscando os elementos direto aqui para criar a string baseada no seu formato necessário
             let elements = `[${document.querySelector("#qnt-botes").value}, ${document.querySelector("#qnt-barcos").value}, ${document.querySelector("#qnt-navios").value}, ${document.querySelector("#qnt-bomb").value}, ${document.querySelector("#qnt-wave").value}]`
 
-            localStorage.setItem("sizeCamp", "4");
-            localStorage.setItem("life", "1");
+            localStorage.setItem("sizeCamp", valueCs);
+            localStorage.setItem("life", lifes);
             localStorage.setItem("elementsCamp", elements);
 
             link.href = "../index.html";
