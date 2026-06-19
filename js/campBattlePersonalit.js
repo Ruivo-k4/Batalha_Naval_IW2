@@ -55,19 +55,19 @@ function display() {
 
     if ((itens - itensInput) < 0) {
         displayItn.style.color = "red";
-    } else {
-        btnForm.addEventListener("click", () => {
-            submitBtn();
-        });
     }
 }
 
-function submitBtn() {
+let btnForm = document.querySelector("#configurate_btn");
+
+btnForm.addEventListener("click", () => {
     let link = document.querySelector("#link_btn");
 
-    localStorage.setItem("sizeCamp", "4");
-    localStorage.setItem("life", "1");
-    localStorage.setItem("elementsCamp", JSON.stringify(meuArray));
+    if (link) {
+        localStorage.setItem("sizeCamp", "4");
+        localStorage.setItem("life", "1");
+        localStorage.setItem("elementsCamp", `[${numBotes}, ${numBarcos}, ${numNavios}, ${numBombs}, ${numWave}]`);
 
-    link.href = "../index.html";
-}
+        link.href = "../index.html";
+    }
+});
