@@ -11,23 +11,56 @@
 <body>
     <!-- forms de login -->
     <div class="container">
-        <form id="forms">
-            <!--  parte onde põe o nome -->
-            <input type="text" id="input-nome" placeholder="JogadorBala112">
-        </form>
-
-        <label for="dificult">
-            <select name="dificult" id="c-dificult">
-                <option value="" >Escolha uma dificuldade</option>
-                <option value="1">Fácil</option>
-                <option value="2">Médio</option>
-                <option value="3">Difícil</option>
-                <option value="4">Criativo</option>
-            </select>
-        </label>
-        <a href="../index.html" class="ancoraSubmit" id="directPag"><button id="submitDificult">INICIAR</button></a>
-    </div>
+        <div class="c-forms">
+            <form id="forms">
+                <!--  parte onde põe o nome -->
+                <input type="text" id="input-nome" placeholder="JogadorBala112">
+            </form>
     
+            <label for="dificult">
+                <select name="dificult" id="c-dificult">
+                    <option value="">Escolha uma dificuldade</option>
+                    <option value="1">Fácil</option>
+                    <option value="2">Médio</option>
+                    <option value="3">Difícil</option>
+                    <option value="4">Criativo</option>
+                </select>
+            </label>
+        </div>
+
+        <a href="../index.html" class="ancoraSubmit" id="directPag"><button id="submitDificult">INICIAR</button></a>
+        
+
+        <div class="container">
+            <a href="./initialFrame.html">Voltar</a>
+
+            <div class="form-header">
+                <h1>PERSONALIZAÇÃO</h1>
+                <h2 id="itensDisp">Itens: 0</h2>
+            </div>
+
+            <div id="configurate">
+                <label for="size_camp">Tamanho do Campo<input type="number" min="3" max="10" id="size_camp"
+                        name="campS_input"></label>
+                <label for="qnt-lifes">Quantidade de vidas:<input type="number" min="1" id="qnt-lifes"
+                        name="ships-input" disabled></label>
+                <label for="qnt-botes">Quantidade de Botes:<input type="number" min="1" id="qnt-botes"
+                        name="ships-input" disabled></label>
+                <label for="qnt-barcos">Quantidade de Barcos:<input type="number" min="1" id="qnt-barcos"
+                        name="ships-input" disabled></label>
+                <label for="qnt-navios">Quantidade de Navios:<input type="number" id="qnt-navios" name="ships-input"
+                        disabled></label>
+                <label for="qnt-bomb">"Quantidade de Bombas:"<input type="number" id="qnt-bomb" name="bombs-input"
+                        disabled></label>
+                <label for="qnt-wave">"Quantidade de agua:"<input type="number" min="1" id="qnt-wave" name="wave-input"
+                        disabled></label>
+                <a href="" id="link_btn"><button id="configurate_btn">Iniciar Jogo</button></a>
+            </div>
+
+            <a href="" id="aleat">link ai</a>
+        </div>
+    </div>
+
     <script type="module" src="../js/dificults.js"></script>
 </body>
 
