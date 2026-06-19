@@ -118,6 +118,7 @@ function comboSequence(r, c) {
 }
 
 //#region bonus de combo
+
 function comboBonus(r, c) {
     let offSet = [
         [r - 1, c], // Cima
