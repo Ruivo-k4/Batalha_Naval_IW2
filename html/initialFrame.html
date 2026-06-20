@@ -2,6 +2,7 @@
 <html lang="pt-br">
 
 <head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"><!--BoodStrap-->
     <link rel="stylesheet" href="../css/style-initFrame.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,7 +12,7 @@
 <body>
     <!-- forms de login -->
     <div class="container">
-        <div class="c-forms">
+        <div class="data">
             <form id="forms">
                 <!--  parte onde põe o nome -->
                 <input type="text" id="input-nome" placeholder="JogadorBala112">
@@ -26,13 +27,13 @@
                     <option value="4">Criativo</option>
                 </select>
             </label>
+            
+            <a href="#" class="ancoraSubmit" id="directPag"><button id="submitDificult">INICIAR</button></a>
         </div>
 
-        <a href="../index.html" class="ancoraSubmit" id="directPag"><button id="submitDificult">INICIAR</button></a>
-        
-
-        <div class="container">
-            <a href="./initialFrame.html">Voltar</a>
+    
+        <div class="forms_data">
+            <a href="./initialFrame.html" id="reloadPag"><i class="bi bi-arrow-left-square"></i></a>
 
             <div class="form-header">
                 <h1>PERSONALIZAÇÃO</h1>
@@ -40,13 +41,13 @@
             </div>
 
             <div id="configurate">
-                <label for="size_camp">Tamanho do Campo<input type="number" min="3" max="10" id="size_camp"
+                <label for="size_camp">área Campo:<input type="number" min="3" max="10" id="size_camp"
                         name="campS_input"></label>
-                <label for="qnt-lifes">Quantidade de vidas:<input type="number" min="1" id="qnt-lifes"
+                <label for="qnt-lifes">Vidas: <input type="number" min="1" id="qnt-lifes"
                         name="ships-input" disabled></label>
-                <label for="qnt-botes">Quantidade de Botes:<input type="number" min="1" id="qnt-botes"
+                <label for="qnt-botes">Botes: <input type="number" min="1" id="qnt-botes"
                         name="ships-input" disabled></label>
-                <label for="qnt-barcos">Quantidade de Barcos:<input type="number" min="1" id="qnt-barcos"
+                <label for="qnt-barcos">Barcos: <input type="number" min="1" id="qnt-barcos"
                         name="ships-input" disabled></label>
                 <label for="qnt-navios">Quantidade de Navios:<input type="number" id="qnt-navios" name="ships-input"
                         disabled></label>
@@ -56,12 +57,13 @@
                         disabled></label>
                 <a href="" id="link_btn"><button id="configurate_btn">Iniciar Jogo</button></a>
             </div>
-
-            <a href="" id="aleat">link ai</a>
         </div>
     </div>
 
     <script type="module" src="../js/dificults.js"></script>
 </body>
+<!--
+<i class="bi bi-arrow-left-square-fill"></i> seta preenchida
+-->
 
 </html>
