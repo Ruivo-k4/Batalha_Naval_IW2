@@ -62,7 +62,7 @@ function persoDificult() {
     }
     //#endregion
 
-    //#regino baitolagem da seta
+    //#region baitolagem da seta e outros css
     let backBtn = document.querySelector('.bi-arrow-left-square');
 
     if (backBtn) {
@@ -74,6 +74,32 @@ function persoDificult() {
         backBtn.addEventListener("mouseout", () => {
             backBtn.classList.remove('bi-arrow-left-square-fill')
             backBtn.classList.add('bi-arrow-left-square');
+        });
+    }
+
+    let container = document.querySelector(".container");
+
+    if(container) {
+        container.style.backgroundColor = "white";
+    }
+    //#endregion
+
+    //#region configuração da dificuldade
+    let cInputs = document.querySelector("#configurate");
+
+    if(configurate) {
+        let camp = document.querySelector("#size_camp");
+        let life = document.querySelector("#qnt-lifes");
+
+        let boat = document.querySelector("#qnt-botes");
+        let barc = document.querySelector("#qnt-barco");
+        let ship = document.querySelector("#qnt-navio");
+        let
+
+        camp.addEventListener('input', () => {
+            if(camp.value !== "") {
+                
+            }
         });
     }
     //#endregion
