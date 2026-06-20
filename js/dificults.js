@@ -25,19 +25,23 @@ if (btnInit) { //esse daqui é da página de inicio
                 localStorage.setItem("sizeCamp", "4");
                 localStorage.setItem("life", "1");
                 localStorage.setItem("elementsCamp", "[3, 3, 2, 3, 5]");//setando os valores de elementCamp, sizeCamp, Life
+                direct.href = "../index.html";
                 break;
             case "2":
                 localStorage.setItem("sizeCamp", "6");
                 localStorage.setItem("life", "2");
                 localStorage.setItem("elementsCamp", "[7, 7, 8, 7, 9]");
+                direct.href = "../index.html";
                 break;
             case "3":
                 localStorage.setItem("sizeCamp", "10");
                 localStorage.setItem("life", "6");
                 localStorage.setItem("elementsCamp", "[15, 17, 19, 21, 29]");
+                direct.href = "../index.html";
                 break;
             case "4":
-                direct.href = "../html/personalitiFrame.html";
+                direct.href = "#";
+                persoDificult();
                 break;
         }
     });
@@ -47,4 +51,31 @@ if (btnInit) { //esse daqui é da página de inicio
 
 //#region personalização
 
+function persoDificult() {
+    //#region mudança de tela
+    let cData = document.querySelector(".data");
+    let cForm = document.querySelector(".forms_data")
+
+    if (cData && cForm) {
+        cData.style.display = "none";
+        cForm.style.display = "flex";
+    }
+    //#endregion
+
+    //#regino baitolagem da seta
+    let backBtn = document.querySelector('.bi-arrow-left-square');
+
+    if (backBtn) {
+        backBtn.addEventListener("mouseover", () => {
+            backBtn.classList.remove('bi-arrow-left-square');
+            backBtn.classList.add('bi-arrow-left-square-fill')
+        });
+
+        backBtn.addEventListener("mouseout", () => {
+            backBtn.classList.remove('bi-arrow-left-square-fill')
+            backBtn.classList.add('bi-arrow-left-square');
+        });
+    }
+    //#endregion
+}
 //#endregion
