@@ -80,7 +80,7 @@ function persoDificult() {
     let container = document.querySelector(".container");
 
     if (container) {
-        container.style.backgroundColor = "white";
+        container.style.backgroundColor = "transparent";
     }
     //#endregion
 
@@ -168,4 +168,15 @@ function persoDificult() {
     }
     //#endregion
 }
+//#endregion
+
+//#region som da pagina
+let sond = document.querySelector("#musicInit");
+
+playSound();
+
+function playSound() {
+    sond.src = "../audios/somFundo.mpeg";
+}
+
 //#endregion
