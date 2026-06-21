@@ -42,20 +42,20 @@
 
             <div id="configurate">
                 <label for="size_camp">área Campo:<input type="number" min="3" max="10" id="size_camp"
-                        name="campS_input"></label>
-                <label for="qnt-lifes">Vidas: <input type="number" min="1" id="qnt-lifes"
-                        name="ships-input" disabled></label>
-                <label for="qnt-botes">Botes: <input type="number" min="1" id="qnt-botes"
-                        name="ships-input" disabled></label>
-                <label for="qnt-barcos">Barcos: <input type="number" min="1" id="qnt-barcos"
-                        name="ships-input" disabled></label>
+                        name="campS_input" onkeydown="return false;"></label>
+                <label for="qnt-lifes">Vidas: <input type="number" id="qnt-lifes" min="1" max="9"
+                        name="ships-input" disabled onkeydown="return false;"></label>
+                <label for="qnt-botes">Botes: <input type="number" id="qnt-botes"
+                        name="ships-input" disabled onkeydown="return false;"></label>
+                <label for="qnt-barcos">Barcos: <input type="number" id="qnt-barcos"
+                        name="ships-input" disabled onkeydown="return false;"></label>
                 <label for="qnt-navios">Quantidade de Navios:<input type="number" id="qnt-navios" name="ships-input"
-                        disabled></label>
+                        disabled onkeydown="return false;"></label>
                 <label for="qnt-bomb">"Quantidade de Bombas:"<input type="number" id="qnt-bomb" name="bombs-input"
-                        disabled></label>
-                <label for="qnt-wave">"Quantidade de agua:"<input type="number" min="1" id="qnt-wave" name="wave-input"
-                        disabled></label>
-                <a href="" id="link_btn"><button id="configurate_btn">Iniciar Jogo</button></a>
+                        disabled onkeydown="return false;"></label>
+                <label for="qnt-wave">"Quantidade de agua:"<input type="number" id="qnt-wave" name="wave-input"
+                        disabled onkeydown="return false;"></label>
+                <a href="#" id="link_btn"><button id="configurate_btn">Iniciar Jogo</button></a>
             </div>
         </div>
     </div>
