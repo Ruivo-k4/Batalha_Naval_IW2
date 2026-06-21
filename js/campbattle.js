@@ -280,21 +280,20 @@ function StateFrame() {
 //#endregion
 
 //#region "responsividade" campo
-if (life == 1) {
+if (sizeCamp >= 3 && sizeCamp <= 5) {
     cCel.forEach(element => {
         element.style.height = "60px";
         element.style.width = "60px"
     });
-} else if (life == 4) {
+} else if (sizeCamp > 5 && sizeCamp <= 8) {
     cCel.forEach(element => {
         element.style.height = "50px";
         element.style.width = "50px"
     });
 } else {
     cCel.forEach(element => {
-        element.style.height = "40px";
-        element.style.width = "40px"
+        element.style.height = "35px";
+        element.style.width = "35px"
     });
 }
 //#endregion
-
