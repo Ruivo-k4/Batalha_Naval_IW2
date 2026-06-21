@@ -12,13 +12,14 @@
 <body>
     <!-- forms de login -->
     <div class="container">
+        <audio src="../audios/somFundo.mpeg" id="musicInit"></audio>
         <div class="data">
             <form id="forms">
                 <!--  parte onde põe o nome -->
-                <input type="text" id="input-nome" placeholder="JogadorBala112">
+                <input type="text" id="input-nome" placeholder="JogadorBala112" class="data_itens">
             </form>
     
-            <label for="dificult">
+            <label for="dificult" class="data_itens">
                 <select name="dificult" id="c-dificult">
                     <option value="">Escolha uma dificuldade</option>
                     <option value="1">Fácil</option>
@@ -28,7 +29,7 @@
                 </select>
             </label>
             
-            <a href="#" class="ancoraSubmit" id="directPag"><button id="submitDificult">INICIAR</button></a>
+            <a href="#" class="ancoraSubmit" id="directPag"><button id="submitDificult" class="data_itens">INICIAR</button></a>
         </div>
 
     
@@ -43,7 +44,7 @@
             <div id="configurate">
                 <label for="size_camp">área Campo:<input type="number" min="3" max="10" id="size_camp"
                         name="campS_input" onkeydown="return false;"></label>
-                <label for="qnt-lifes">Vidas: <input type="number" id="qnt-lifes" min="1" max="9"
+                <label for="qnt-lifes">Vidas: <input type="number" id="qnt-lifes" min="1" max="6"
                         name="ships-input" disabled onkeydown="return false;"></label>
                 <label for="qnt-botes">Botes: <input type="number" id="qnt-botes"
                         name="ships-input" disabled onkeydown="return false;"></label>
