@@ -79,7 +79,7 @@ function persoDificult() {
 
     let container = document.querySelector(".container");
 
-    if(container) {
+    if (container) {
         container.style.backgroundColor = "white";
     }
     //#endregion
@@ -87,20 +87,84 @@ function persoDificult() {
     //#region configuração da dificuldade
     let cInputs = document.querySelector("#configurate");
 
-    if(configurate) {
+    if (configurate) {
         let camp = document.querySelector("#size_camp");
         let life = document.querySelector("#qnt-lifes");
 
         let boat = document.querySelector("#qnt-botes");
-        let barc = document.querySelector("#qnt-barco");
-        let ship = document.querySelector("#qnt-navio");
-        let
+        let barc = document.querySelector("#qnt-barcos");
+        let ship = document.querySelector("#qnt-navios");
+        let bomb = document.querySelector("#qnt-bomb");
+        let wave = document.querySelector("#qnt-wave");
+
+        let itens = [boat, barc, ship, bomb, wave];
+
+        let somaItens = 0;
+        let result = 0;
+        let displayItens = document.querySelector("#itensDisp");
 
         camp.addEventListener('input', () => {
-            if(camp.value !== "") {
-                
+
+            if (camp.value !== "" && camp.value <= 10 && camp.value >= 3) {
+                itens.forEach(element => {
+                    element.disabled = false;
+                    element.value = Math.floor((camp.value * camp.value) / 5)
+                })
+                life.disabled = false;
+            } else {
+                itens.forEach(element => {
+                    element.disabled = true;
+                    element.value = "";
+                })
+                life.disabled = true;
+                life.value = "";
             }
+
+            display();
+
+            itens.forEach(element => {
+                element.addEventListener("input", () => {
+                    display();
+                })
+            });
         });
+
+        function display() {
+            somaItens = 0;
+
+            itens.forEach(element => {
+                somaItens += Number(element.value) || 0;
+            })
+
+            result = (camp.value * camp.value) - somaItens;
+
+            displayItens.innerHTML = "Itens: " + result;
+        }
+
+        let btnForm = document.querySelector("#configurate_btn");
+
+        if (btnForm) {
+            btnForm.addEventListener("click", () => {
+                let vLife = life.value;
+
+                if (result != 0 && vLife === "") {
+                    alert("Quantidade de itens deve ser 0 e Vidas minimas = 1");
+                } else if (result == 0 && vLife === "") {
+                    alert("Vidas minimas = 1");
+                } else if (result != 0 && vLife !== "") {
+                    alert("Quantidade de itens deve ser 0");
+                } else {
+                    let valuesItens = itens.map(element => Number(element.value) || 0);
+
+                    localStorage.setItem("sizeCamp", camp.value);
+                    localStorage.setItem("life", life.value);
+                    localStorage.setItem("elementsCamp", JSON.stringify(valuesItens));
+
+                    window.location.href = "../index.html";
+                }
+
+            });
+        }
     }
     //#endregion
 }
