@@ -162,9 +162,9 @@ function comboBonus(r, c) {
 let cBbData = document.querySelector("#bombsData");//onde vai mostrar o núnero de bombas
 let bombsQnt = totBomb;
 
-function bombDisplay(bombs) {
-    bombs -= 1;
-    cBbData.innerHTML = "Bombas: " + bombs;
+function bombDisplay() {
+    bombsQnt -= 1;
+    cBbData.innerHTML = "Bombas: " + bombsQnt;
 }
 
 cBbData.innerHTML = "Bombas: " + bombsQnt;
@@ -172,9 +172,9 @@ cBbData.innerHTML = "Bombas: " + bombsQnt;
 let cShipData = document.querySelector("#shipsData");
 let shipQnt = totShips;
 
-function shipDisplay(ship) {
-    ship -= 1;
-    cShipData.innerHTML = "Barcos: " + ship;
+function shipDisplay() {
+    shipQnt -= 1;
+    cShipData.innerHTML = "Barcos: " + shipQnt;
 }
 
 cShipData.innerHTML = "Barcos: " + shipQnt;
@@ -215,7 +215,7 @@ itensCamp.forEach((row, rowIndex) => {
                     case 1: cel.style.backgroundImage = `url(imgs/${imgsShip[1]})`; winner(); comboBonus(rowIndex, colIndex); comboSequence(rowIndex, colIndex); sound.src = "../audios/som_barco1.mp3"; sounds(); break;
                     case 2: cel.style.backgroundImage = `url(imgs/${imgsShip[2]})`; winner(); comboBonus(rowIndex, colIndex); comboSequence(rowIndex, colIndex); sound.src = "../audios/som_barco1.mp3"; sounds(); shipDisplay(shipQnt); break;
                     //0 - 1 - 2 é tudo barco
-                    case 3: cel.style.backgroundImage = `url(imgs/${imgsShip[3]})`; stateHearts(); combo = 0; comboImg.src = "imgs/ponto1x.png"; bombDisplay(bombsQnt); sound.src = "../audios/explosão.mp3"; sounds(); break;
+                    case 3: cel.style.backgroundImage = `url(imgs/${imgsShip[3]})`; stateHearts(); combo = 0; comboImg.src = "imgs/ponto1x.png"; bombDisplay(); sound.src = "../audios/explosão.mp3"; sounds(); break;
                     //bomba
                     case 4: cel.style.backgroundImage = `url(imgs/${imgsShip[4]})`; combo = 0; comboImg.src = "imgs/ponto1x.png"; break;
                     //água
