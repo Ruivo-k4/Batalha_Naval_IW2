@@ -173,10 +173,8 @@ function persoDificult() {
 //#region som da pagina
 let sond = document.querySelector("#musicInit");
 
-playSound();
-
-function playSound() {
-    sond.src = "../audios/somFundo.mpeg";
+if (sond) {
+    
 }
 
 //#endregion
