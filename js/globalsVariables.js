@@ -8,8 +8,9 @@ export let totShips = elementsCamp[0] + elementsCamp[1] + elementsCamp[2];
 export let totBomb = elementsCamp[3];
 
 export let nameUser = localStorage.getItem("nameUser") || "User440";
+export let scoreUser = Number(localStorage.getItem("scoreUser")) || 0;
 
-export function configurate(newElements, newSize, newLife, newHeart, newNameUser) {
+export function configurate(newElements, newSize, newLife, newHeart, newNameUser, newScore) {
     elementsCamp.length = 0;
     elementsCamp.push(...newElements);
 
@@ -20,9 +21,11 @@ export function configurate(newElements, newSize, newLife, newHeart, newNameUser
     totBomb = elementsCamp[3];
 
     nameUser = newNameUser;
+    scoreUser = newScore;
 
     localStorage.setItem("elementsCamp", JSON.stringify(elementsCamp));
     localStorage.setItem("sizeCamp", sizeCamp);
     localStorage.setItem("life", life);
     localStorage.setItem("nameUser", newNameUser);
+    localStorage.setItem("scoreUser", newScore);
 }
