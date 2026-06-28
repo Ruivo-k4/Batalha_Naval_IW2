@@ -9,8 +9,11 @@ export let totBomb = elementsCamp[3];
 
 export let nameUser = localStorage.getItem("nameUser") || "User440";
 export let scoreUser = Number(localStorage.getItem("scoreUser")) || 0;
+export let positionUser = Number(localStorage.getItem("positionUser")) || 1;
 
-export function configurate(newElements, newSize, newLife, newHeart, newNameUser, newScore) {
+export let game = localStorage.getItem("gameState") || "play";
+
+export function configurate(newElements, newSize, newLife, newHeart, newNameUser, newScore, newPosition, newGame) {
     elementsCamp.length = 0;
     elementsCamp.push(...newElements);
 
@@ -22,10 +25,15 @@ export function configurate(newElements, newSize, newLife, newHeart, newNameUser
 
     nameUser = newNameUser;
     scoreUser = newScore;
+    positionUser = newPosition;
+
+    game = newGame;
 
     localStorage.setItem("elementsCamp", JSON.stringify(elementsCamp));
     localStorage.setItem("sizeCamp", sizeCamp);
     localStorage.setItem("life", life);
     localStorage.setItem("nameUser", newNameUser);
     localStorage.setItem("scoreUser", newScore);
+    localStorage.setItem("positionUser", newPosition);
+    localStorage.setItem("gameState", newGame);
 }
