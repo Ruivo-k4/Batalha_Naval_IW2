@@ -1,12 +1,15 @@
 console.log("campBattle.js está ativo!"); //Só pra verficar se fuinciona
 
 //#region Importações
-import { sizeCamp, elementsCamp, life, configurate, totShips, totBomb, scoreUser } from './globalsVariables.js';
+import { sizeCamp, elementsCamp, life, configurate, totShips, totBomb, scoreUser, game } from './globalsVariables.js';
 //#endregion
+localStorage.setItem("scoreUser", 0);
+if (game === "play") {
+    localStorage.setItem("gameState", "play");
+}
 
 let score = scoreUser;
 let shipsTot = 0;//dita quando o jogo acaba
-console.log(totShips);
 
 function winner() {
     shipsTot += 1;
@@ -17,7 +20,8 @@ function winner() {
     if (shipsTot == totShips) {
         setTimeout(() => {
             alert("Você venceu!!");
-            location.reload();
+            window.location.href = "../html/scoreFrame.html";
+
         }, 1000);
     }
 }
@@ -25,7 +29,6 @@ function winner() {
 let chances = life; //só pra poder alterar a vida diretamente por aqui
 function loose() {
     chances -= 1
-    console.log("Vidas: " + chances);
     if (chances <= 0) {
         setTimeout(() => {
             alert("Você Perdeu Bobão!!");
@@ -79,6 +82,7 @@ if (camp) {
     //#region combos
     let combo = 0
     let comboImg = document.querySelector("#comboImage")
+    let offSetTipe = 0
 
     function comboSequence(r, c) {
         let scoreDisplay = document.querySelector("#scoreText");
@@ -100,8 +104,6 @@ if (camp) {
             score += 100 * 10;
         }
 
-
-        console.log(combo)
 
         if (comboImg) {
             //sistema de troca de imagens dinâmico
@@ -130,12 +132,12 @@ if (camp) {
             [r, c + 1]  // Direita
         ];
         let offSet2 = [
-            [r - 1, c - 1], [r - 1, c], [r - 1, c + 1], [r + 1, c - 1],
-              
-        ]
+            [r - 1, c], [r + 1, c], [r, c - 1], [r, c + 1],
+            [r - 1, c - 1], [r + 1, c - 1], [r - 1, c + 1], [r + 1, c + 1]
+        ];
 
         offSet.forEach(([vRow, vCol]) => { //vamos entrar dentro da mascara
-            if (combo >= totShips * 0.37) {
+            if (combo >= totShips * 0.25 && combo <= totShips * 0.37) {
                 if (vRow >= 0 && vRow < sizeCamp && vCol >= 0 && vCol < sizeCamp) { //não deixa ele sair fora da matriz
                     let offsIndex = vRow * sizeCamp + vCol;
                     let nCel = cCel[offsIndex]; //neighbor (vizinho) celula -> cCel[item achado]
@@ -160,6 +162,34 @@ if (camp) {
                 }
             }
         });
+
+        offSet2.forEach(([vRow, vCol]) => { //vamos entrar dentro da mascara
+            if (combo > totShips * 0.37) {
+                if (vRow >= 0 && vRow < sizeCamp && vCol >= 0 && vCol < sizeCamp) { //não deixa ele sair fora da matriz
+                    let offsIndex = vRow * sizeCamp + vCol;
+                    let nCel = cCel[offsIndex]; //neighbor (vizinho) celula -> cCel[item achado]
+
+                    if (!nCel.classList.contains('revealed')) {//somente os que não foram revelados
+                        let nValue = itensCamp[vRow][vCol]; //pega qual é o elemento da matriz
+
+                        nCel.style.transform = "rotateY(-360deg) rotateX(-35deg)";
+
+                        // Revela a imagem do vizinho após o mesmo tempo de animação
+                        setTimeout(() => {
+                            nCel.style.backgroundImage = `url(imgs/${imgsShip[nValue]})`;//coloca a imagem correta
+                        }, 200);
+
+                        setTimeout(() => {
+                            let alet = Math.floor(Math.random() * 3);
+
+                            nCel.style.transform = "none";
+                            nCel.style.backgroundImage = imgsInit[alet];
+                        }, 800);
+                    }
+                }
+            }
+        });
+
     }
     //#endregion
 
@@ -218,9 +248,9 @@ if (camp) {
 
                 setTimeout(() => {
                     switch (Element) {
-                        case 0: cel.style.backgroundImage = `url(imgs/${imgsShip[0]})`; winner(); comboBonus(rowIndex, colIndex); comboSequence(rowIndex, colIndex); sound.src = "../audios/som_barco1.mp3"; sounds(); break;
-                        case 1: cel.style.backgroundImage = `url(imgs/${imgsShip[1]})`; winner(); comboBonus(rowIndex, colIndex); comboSequence(rowIndex, colIndex); sound.src = "../audios/som_barco1.mp3"; sounds(); break;
-                        case 2: cel.style.backgroundImage = `url(imgs/${imgsShip[2]})`; winner(); comboBonus(rowIndex, colIndex); comboSequence(rowIndex, colIndex); sound.src = "../audios/som_barco1.mp3"; sounds(); shipDisplay(shipQnt); break;
+                        case 0: cel.style.backgroundImage = `url(imgs/${imgsShip[0]})`; winner(); comboBonus(rowIndex, colIndex); comboSequence(rowIndex, colIndex); sound.src = "../audios/som_barco1.mp3"; sounds(); shipDisplay(); break;
+                        case 1: cel.style.backgroundImage = `url(imgs/${imgsShip[1]})`; winner(); comboBonus(rowIndex, colIndex); comboSequence(rowIndex, colIndex); sound.src = "../audios/som_barco1.mp3"; sounds(); shipDisplay(); break;
+                        case 2: cel.style.backgroundImage = `url(imgs/${imgsShip[2]})`; winner(); comboBonus(rowIndex, colIndex); comboSequence(rowIndex, colIndex); sound.src = "../audios/som_barco1.mp3"; sounds(); shipDisplay(); break;
                         //0 - 1 - 2 é tudo barco
                         case 3: cel.style.backgroundImage = `url(imgs/${imgsShip[3]})`; stateHearts(); combo = 0; comboImg.src = "imgs/ponto1x.png"; bombDisplay(); sound.src = "../audios/explosão.mp3"; sounds(); break;
                         //bomba
