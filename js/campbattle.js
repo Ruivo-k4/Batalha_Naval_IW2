@@ -39,6 +39,7 @@ function loose() {
 
 //#region Gerando o campo
 let camp = document.querySelector(".campBattle"); // captura o campBattle do index.html
+
 if (camp) {
     camp.style.gridTemplateRows = `repeat(${sizeCamp}, 1fr)`;
     camp.style.gridTemplateColumns = `repeat(${sizeCamp}, 1fr)`;
