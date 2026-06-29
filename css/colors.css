@@ -1,3 +1,10 @@
 :root {
-    
+    --hint: #f9f9f9;
+    --hint_2: #ddd;
+    --hint_3: #ccc;
+    --hint_4: #999;
+
+    --white: white;
+
+    --blueCea: #007bff;
 }
