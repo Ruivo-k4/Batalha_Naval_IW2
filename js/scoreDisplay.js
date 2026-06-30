@@ -1,7 +1,15 @@
 console.log("scoreDisplay.js está funcionando!!");
 
 //#region importações
-import { nameUser, scoreUser, positionUser, game } from "./globalsVariables.js";
+import { nameUser, scoreUser, positionUser, game, rankUsers } from "./globalsVariables.js";
+//#endregion
+
+//#region criando os rankings
+let player = JSON.parse(localStorage.getItem("rankUsers")) || [];
+let gameNaw = game;
+
+console.log("nome usuario: "+nameUser)
+
 //#endregion
 
 //#region tabela
@@ -9,27 +17,23 @@ let table = document.querySelector("#content_data");
 
 if (table) {
     let body = document.querySelector("#table_body");
-    let data = [nameUser, scoreUser, positionUser];
-    let pos = positionUser;
+    body.innerHTML = ""; // Garante que a tabela comece limpa
 
-    let row = document.createElement('tr');
-    row.classList.add = "table_row";
+    // 2. Renderiza o histórico na tela
+    player.forEach((jogador) => {
+        let row = document.createElement('tr');
+        row.classList.add("table_row");
 
-    for (let j = 0; j < 3; j++) {
-        let col = document.createElement('th');
-        col.classList.add = "table_cow";
+        let data = [jogador.name, jogador.score, jogador.position];
 
-        col.innerHTML = data[j];
-        row.append(col);
-    }
-    body.append(row);
-
-    if (game === "play") {
-        localStorage.setItem("gameState", "end");
-        pos += 1;
-    }
-
-    localStorage.setItem("positionUser", pos);
+        for (let j = 0; j < 3; j++) {
+            let col = document.createElement('td');
+            col.classList.add("table_cow");
+            col.textContent = data[j];
+            row.append(col);
+        }
+        body.append(row);
+    });
 }
 //#endregion
 
