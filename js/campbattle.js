@@ -1,40 +1,57 @@
 console.log("campBattle.js está ativo!"); //Só pra verficar se fuinciona
 
 //#region Importações
-import { sizeCamp, elementsCamp, life, configurate, totShips, totBomb, scoreUser, game } from './globalsVariables.js';
+import { sizeCamp, elementsCamp, life, configurate, totShips, totBomb, scoreUser, game, nameUser, positionUser} from './globalsVariables.js';
 //#endregion
 localStorage.setItem("scoreUser", 0);
-if (game === "play") {
-    localStorage.setItem("gameState", "play");
-}
-
-let score = scoreUser;
+let score = 0;
 let shipsTot = 0;//dita quando o jogo acaba
 
 function winner() {
     shipsTot += 1;
-    console.log(totShips)
 
     localStorage.setItem("scoreUser", score);
-
+    
     if (shipsTot == totShips) {
+        saveDatas();
+
         setTimeout(() => {
             alert("Você venceu!!");
             window.location.href = "../html/scoreFrame.html";
-
         }, 1000);
     }
 }
 
 let chances = life; //só pra poder alterar a vida diretamente por aqui
+
 function loose() {
     chances -= 1
+
     if (chances <= 0) {
+        saveDatas();
+
         setTimeout(() => {
             alert("Você Perdeu Bobão!!");
             location.reload();
         }, 600);
     }
+}
+function saveDatas() {
+    let player = JSON.parse(localStorage.getItem("rankUsers")) || []; //criando um array para salvar os dados tops
+    let pos = positionUser
+    
+    let datas = { //criando um objeto para os dados
+        name: nameUser,
+        score: score,
+        position: positionUser
+    };
+
+    player.push(datas);
+
+    localStorage.setItem("rankUsers", JSON.stringify(player)); //guarda os caras
+
+    pos += 1;
+    localStorage.setItem("positionUser", pos);
 }
 
 //#region Gerando o campo
