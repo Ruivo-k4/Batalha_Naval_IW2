@@ -10,6 +10,14 @@ let direct = document.querySelector("#directPag");
 
 if (btnInit) { //esse daqui é da página de inicio
     btnInit.addEventListener('click', () => {
+        let user = document.querySelector("#input-nome");
+        let vName = user.value;
+
+        if (vName === "") {
+            alert("Precisa de um nome capitão");
+            return
+        }
+
         let option = document.querySelector("#c-dificult")
         let val = option.value
 
@@ -174,7 +182,7 @@ function persoDificult() {
 let sond = document.querySelector("#musicInit");
 
 if (sond) {
-    
+
 }
 
 //#endregion
